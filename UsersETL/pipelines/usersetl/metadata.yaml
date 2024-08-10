@@ -1,0 +1,137 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - tranformation_drop_duplicates
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: API Data Ingestion
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: api_data_ingestion
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: transformers/tranformation_drop_duplicates.py
+    file_source:
+      path: transformers/tranformation_drop_duplicates.py
+  downstream_blocks:
+  - dob_transformation
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: tranformation Drop Duplicates
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - api_data_ingestion
+  uuid: tranformation_drop_duplicates
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - data_masking
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: DOB transformation
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - tranformation_drop_duplicates
+  uuid: dob_transformation
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: transformers/data_masking.py
+    file_source:
+      path: transformers/data_masking.py
+  downstream_blocks:
+  - login_credentials_encryption
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Data Masking
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - dob_transformation
+  uuid: data_masking
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - load_to_mongodb
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Login Credentials Encryption
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - data_masking
+  uuid: login_credentials_encryption
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_path: data_exporters/load_to_mongodb.py
+    file_source:
+      path: data_exporters/load_to_mongodb.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Load To MongoDB
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - login_credentials_encryption
+  uuid: load_to_mongodb
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-08-10 04:29:17.162409+00:00'
+data_integration: null
+description: An ETL pipeline that ingests user data from the RandomUser API, transforms
+  it in Mage AI, and visualises it using Tableau.
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: UsersETL
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- Users
+- ETL
+type: python
+uuid: usersetl
+variables_dir: /Users/divinesam/.mage_data/UsersETL
+widgets: []
