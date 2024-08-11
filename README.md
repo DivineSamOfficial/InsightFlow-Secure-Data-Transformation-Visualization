@@ -1,8 +1,4 @@
-Here's the updated README file reflecting the scheduling done using MAGE AI:
-
----
-
-# InsightFlow: Secure Data Transformation & Visualization
+# InsightFlow: Secure Data Transformation & Visualization Project
 
 ## Overview
 
