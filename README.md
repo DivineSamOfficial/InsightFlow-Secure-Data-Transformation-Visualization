@@ -50,31 +50,6 @@ The project architecture ensures modularity and data security at every stage, fr
 - **MongoDB BI Connector** for connecting MongoDB to Tableau.
 - **Tableau** for data visualization.
 
-## Installation
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/YourUsername/InsightFlow.git
-   cd InsightFlow
-   ```
-
-2. **Install Dependencies:**
-   Ensure you have Python, MAGE AI, MongoDB, and Tableau installed. Then install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure MongoDB:**
-   Set up your MongoDB instance and ensure it’s running. Configure the connection settings in the project files.
-
-4. **Run the ETL Pipeline:**
-   Execute the data ingestion and transformation scripts:
-   ```bash
-   python main.py
-   ```
-
-5. **Visualize Data:**
-   Connect Tableau to your MongoDB instance using the BI Connector, and load the provided `.twbx` file to explore the visualizations.
 
 ## Data Flow
 
@@ -111,32 +86,3 @@ This approach ensures compliance with data privacy regulations while allowing me
 ## Scheduling & Automation
 
 The ETL pipeline is scheduled to run daily using MAGE AI's built-in scheduling and triggering features. This automation ensures that the data is always up-to-date, with transformations and load operations executed at regular intervals without manual intervention.
-
-## Usage
-
-1. **Run the ETL Process:**
-   - Ingest, transform, and load the data.
-  
-2. **Access Visualizations:**
-   - Open Tableau and connect to MongoDB.
-   - Explore the dashboards to gain insights from the transformed user data.
-
-## Future Enhancements
-
-- **Extended Data Security:** 
-  - Integrate more advanced encryption methods and user access controls.
-  
-- **Scalable Deployment:** 
-  - Deploy the pipeline on cloud infrastructure for handling larger datasets.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request or open an issue for any suggestions or improvements.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-This README now includes details about the scheduling aspect using MAGE AI, making it comprehensive and suitable for showcasing your project on GitHub.
